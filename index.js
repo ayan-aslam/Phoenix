@@ -11,6 +11,11 @@ const session = require('express-session');
 //Order of require statements matters.
 require('./models/User.js');
 require('./services/passport');
+const dbURI = process.env.DB_CONNECT;
+
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('Database connected successfully'))
+  .catch(err => console.error('Database connection error:', err));
 
 
 const mongoose = require('mongoose');
