@@ -9,7 +9,7 @@ const cookieSession = require('cookie-session');
 const session = require('express-session');
 
 //Order of require statements matters.
-require('./models/user.js');
+require('./models/User.js');
 require('./services/passport');
 
 
