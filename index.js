@@ -13,15 +13,17 @@ require('./models/User.js');
 require('./services/passport');
 const dbURI = process.env.DB_CONNECT;
 
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('Database connected successfully'))
-  .catch(err => console.error('Database connection error:', err));
 
 
 const mongoose = require('mongoose');
 // Importing the mongoose module to connect to MongoDB.
 
 mongoose.connect(keys.mongoURI);
+
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('Database connected successfully'))
+  .catch(err => console.error('Database connection error:', err));
+
 
 
 
