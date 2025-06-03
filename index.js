@@ -20,9 +20,6 @@ const mongoose = require('mongoose');
 
 mongoose.connect(keys.mongoURI);
 
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('Database connected successfully'))
-  .catch(err => console.error('Database connection error:', err));
 
 
 
