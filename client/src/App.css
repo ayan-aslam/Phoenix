@@ -1,0 +1,4 @@
+.nav-wrapper,
+.nav-wrapper:after {
+  box-shadow: none !important;
+}
