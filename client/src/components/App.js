@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import {BrowserRouter, Route} from 'react-router-dom';
-import  Header from './Header';
+import  Landing from './Landing';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-import Landing from './Landing';
-import '../App.css'
-
+import Landingtext from './Landingtext';
+// import '../App.css'
+import Header from './Header';
 // const Header = () => <h2>Header</h2>;
 const Dashboard = () => <h2>Dashboard</h2>;
 const SurveyNew = () => <h2>SurveyNew</h2>;
@@ -32,7 +32,12 @@ class App extends Component {
                     <div>
                         <Header /> 
                         <div className='container'></div>
-                        <Route exact path="/" component={Landing} />
+                        <Route exact path="/" component={() => (
+                                                                    <>
+                                                                    <Landing />
+                                                                    <Landingtext />
+                                                                    </>
+                                                                )} />
                         <Route exact path="/surveys" component={Dashboard} />
                         <Route path='/surveys/new' component={SurveyNew} />
 

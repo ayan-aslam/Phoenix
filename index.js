@@ -5,8 +5,10 @@ const express = require('express');
 const authRoutes = require('./routes/authRoutes');  
 const keys = require('./config/keys');
 const passport = require('passport');
+const billingRoutes = require('./routes/billingRoutes');
 const cookieSession = require('cookie-session');
 const session = require('express-session');
+const bodyParser = require('body-parser');
 
 //Order of require statements matters.
 require('./models/User.js');
@@ -31,6 +33,9 @@ mongoose.connect(keys.mongoURI);
 
 const app = express();
 
+app.use(bodyParser.json()); // Middleware to parse JSON request bodies  
+
+
 // app.use(
 //     cookieSession({
 //         maxAge: 30 * 24 * 60 * 60 * 1000, // 24 hours in milliseconds
@@ -54,6 +59,7 @@ app.use(passport.session());
 
 //Imported route handlers from authRoutes.js exported as aa function.
 authRoutes(app);
+billingRoutes(app);
 
 const PORT = process.env.PORT || 5000;
 
