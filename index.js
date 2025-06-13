@@ -74,6 +74,17 @@ if (process.env.NODE_ENV === 'production') {
     });
 }
 
+const originalAppGet = app.get;
+app.get = function(path, ...args) {
+    console.log('Registering GET route:', path);
+    return originalAppGet.call(this, path, ...args);
+};
+const originalAppPost = app.post;
+app.post = function(path, ...args) {
+    console.log('Registering POST route:', path);
+    return originalAppPost.call(this, path, ...args);
+};
+
 
 
 const PORT = process.env.PORT || 5000;
