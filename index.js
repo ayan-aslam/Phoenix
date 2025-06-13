@@ -90,3 +90,13 @@ app.post = function(path, ...args) {
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT);
+
+console.log('Starting server setup...');
+
+try {
+  // ...existing code...
+  // All your require and app setup code here
+} catch (err) {
+  console.error('Startup error:', err);
+  throw err;
+}
