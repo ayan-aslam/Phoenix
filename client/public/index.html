@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- In your public/index.html <head> -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -25,9 +27,107 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+    <style>
+      body {
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: #111;
+        overflow-x: hidden;
+      }
+      .animated-bg {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        z-index: -1;
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(
+          120deg,
+          #111 0%,
+          #232323 40%,
+          #444 100%
+        );
+        background-size: 200% 200%;
+        animation: grayGradientMove 10s ease-in-out infinite;
+        transition: background 0.5s;
+        overflow: hidden;
+      }
+      @keyframes grayGradientMove {
+        0% {background-position: 0% 50%;}
+        50% {background-position: 100% 50%;}
+        100% {background-position: 0% 50%;}
+      }
+      .particle {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.7;
+        pointer-events: none;
+        animation: particleMove 12s linear infinite;
+      }
+      .particle1 {
+        width: 12px; height: 12px;
+        left: 10vw; top: 80vh;
+        animation-duration: 8s;
+        animation-delay: 0s;
+        background: radial-gradient(circle, #ff9800 0%, #ff980088 60%, #fff0 100%);
+        box-shadow: 0 0 16px 4px #ff980055;
+      }
+      .particle2 {
+        width: 10px; height: 10px;
+        left: 30vw; top: 90vh;
+        animation-duration: 10s;
+        animation-delay: 2s;
+        background: radial-gradient(circle, #ffd600 0%, #ffd60088 60%, #fff0 100%);
+        box-shadow: 0 0 12px 3px #ffd60055;
+      }
+      .particle3 {
+        width: 14px; height: 14px;
+        left: 60vw; top: 85vh;
+        animation-duration: 12s;
+        animation-delay: 4s;
+        background: radial-gradient(circle, #ff6f00 0%, #ff6f0088 60%, #fff0 100%);
+        box-shadow: 0 0 18px 5px #ff6f0055;
+      }
+      .particle4 {
+        width: 9px; height: 9px;
+        left: 80vw; top: 95vh;
+        animation-duration: 9s;
+        animation-delay: 1s;
+        background: radial-gradient(circle, #ffd600 0%, #ffd60088 60%, #fff0 100%);
+        box-shadow: 0 0 10px 2px #ffd60055;
+      }
+      .particle5 {
+        width: 11px; height: 11px;
+        left: 50vw; top: 92vh;
+        animation-duration: 11s;
+        animation-delay: 3s;
+        background: radial-gradient(circle, #ff9800 0%, #ff980088 60%, #fff0 100%);
+        box-shadow: 0 0 14px 4px #ff980055;
+      }
+      @keyframes particleMove {
+        0% {
+          transform: translateY(0) scale(1);
+          opacity: 0.7;
+        }
+        80% {
+          opacity: 0.7;
+        }
+        100% {
+          transform: translateY(-90vh) scale(1.2);
+          opacity: 0;
+        }
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div class="animated-bg">
+      <div class="particle particle1"></div>
+      <div class="particle particle2"></div>
+      <div class="particle particle3"></div>
+      <div class="particle particle4"></div>
+      <div class="particle particle5"></div>
+    </div>
     <div id="root"></div>
     <!--
       This HTML file is a template.

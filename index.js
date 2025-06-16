@@ -12,6 +12,7 @@ const bodyParser = require('body-parser');
 
 //Order of require statements matters.
 require('./models/User.js');
+require('./models/Surveys.js');
 require('./services/passport');
 const dbURI = process.env.DB_CONNECT;
 
@@ -19,7 +20,7 @@ const dbURI = process.env.DB_CONNECT;
 
 const mongoose = require('mongoose');
 // Importing the mongoose module to connect to MongoDB.
-
+mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI);
 
 
@@ -60,6 +61,7 @@ app.use(passport.session());
 //Imported route handlers from authRoutes.js exported as aa function.
 authRoutes(app);
 billingRoutes(app);
+require('./routes/surveyRoutes')(app); // Passing the app instance to the surveyRoutes function
 
 if (process.env.NODE_ENV === 'production') {
     // Express will serve up production assets
@@ -74,16 +76,16 @@ if (process.env.NODE_ENV === 'production') {
     });
 }
 
-const originalAppGet = app.get;
-app.get = function(path, ...args) {
-    console.log('Registering GET route:', path);
-    return originalAppGet.call(this, path, ...args);
-};
-const originalAppPost = app.post;
-app.post = function(path, ...args) {
-    console.log('Registering POST route:', path);
-    return originalAppPost.call(this, path, ...args);
-};
+// const originalAppGet = app.get;
+// app.get = function(path, ...args) {
+//     console.log('Registering GET route:', path);
+//     return originalAppGet.call(this, path, ...args);
+// };
+// const originalAppPost = app.post;
+// app.post = function(path, ...args) {
+//     console.log('Registering POST route:', path);
+//     return originalAppPost.call(this, path, ...args);
+// };
 
 
 
