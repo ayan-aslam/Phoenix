@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-// Importing the mongoose module to connect to MongoDB.
 const RecipientSchema = require('./Recipient'); // Assuming you have a Recipient model defined
 
 
