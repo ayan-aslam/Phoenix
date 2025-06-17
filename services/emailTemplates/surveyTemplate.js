@@ -8,9 +8,15 @@ module.exports = survey => {
           <h2 style="color: #333; margin-bottom: 8px;">We'd love your input!</h2>
           <p style="color: #555; font-size: 16px; margin-bottom: 24px;">Please answer the following question:</p>
           <p style="font-size: 18px; color: #222; font-weight: 500; margin-bottom: 32px;">${survey.body}</p>
-          <div style="display: flex; justify-content: center; gap: 24px; margin-bottom: 8px;">
-            <a href="${keys.redirectDomain}/api/surveys/${survey.id}/yes" style="background: #4caf50; color: #fff; text-decoration: none; padding: 12px 32px; border-radius: 4px; font-size: 16px; font-weight: bold; display: inline-block;">Yes</a>
-            <a href="${keys.redirectDomain}/api/surveys/${survey.id}/no" style="background: #f44336; color: #fff; text-decoration: none; padding: 12px 32px; border-radius: 4px; font-size: 16px; font-weight: bold; display: inline-block;">No</a>
+          <div style="display: flex; justify-content: center; gap: 16px; margin-bottom: 8px;">
+            <a href="${keys.redirectDomain}/api/surveys/${survey.id}/yes"
+              style="background:rgb(218, 99, 9); color: #fff; text-decoration: none; padding: 12px 32px; border-radius: 50px; font-size: 16px; font-weight: bold; display: inline-block;">
+              Yes
+            </a>
+            <a href="${keys.redirectDomain}/api/surveys/${survey.id}/no"
+              style="background: #000; color: #fff; text-decoration: none; padding: 12px 32px; border-radius: 50px; font-size: 16px; font-weight: bold; display: inline-block;">
+              No
+            </a>
           </div>
           <p style="color: #aaa; font-size: 12px; margin-top: 32px;">Thank you for your feedback!</p>
         </div>
